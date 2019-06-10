@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
 import java.text.DecimalFormat;
+import android.support.v7.app.ActionBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
 
         //make button do something
         Button calcButton = findViewById(R.id.calculateButton);
