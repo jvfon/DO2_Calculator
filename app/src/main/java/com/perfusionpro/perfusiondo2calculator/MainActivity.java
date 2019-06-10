@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         textViews[7] = findViewById(R.id.textView017);
 
         //pull data from user's input
-        for (int i = 0;i<editTexts.length-1;i++) {
+        for (int i = 0;i<editTexts.length;i++) {
             nums[i] = Double.parseDouble(editTexts[i].getText().toString());
+
         }
 
         //perform calculations
@@ -56,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
         newNums[6] = newNums[0] * (newNums[1] - newNums[2]) * 10;
         newNums[7] = 80 * (nums[8] - nums[7]) / nums[6];
 
+
         //plug data into textviews
         for (int i = 0;i<textViews.length-1;i++) {
-            textViews[i].setText(String.valueOf(newNums[i]));
+            DecimalFormat truncatedNum = new DecimalFormat("0.00");
+            textViews[i].setText(truncatedNum.format(newNums[i]));
         }
     };
 
